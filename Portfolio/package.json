@@ -47,15 +47,19 @@
             "tailwind-merge": "*",
             "vaul": "^1.1.2"
       },
-      "devDependencies": {
-            "@types/node": "^20.10.0",
-            "@types/react": "^19.2.7",
-            "@types/react-dom": "^19.2.3",
-            "@vitejs/plugin-react-swc": "^3.10.2",
-            "vite": "6.3.5"
-      },
-      "scripts": {
-            "dev": "vite",
-            "build": "vite build"
-      }
+        "devDependencies": {
+                  "@types/node": "^20.10.0",
+                  "@types/react": "^19.2.7",
+                  "@types/react-dom": "^19.2.3",
+                  "@vitejs/plugin-react-swc": "^3.10.2",
+                  "vite": "6.3.5",
+                  "gh-pages": "^5.0.0"
+            },
+            "homepage": "https://TassainRasool.github.io/PortFolio",
+            "scripts": {
+                  "dev": "vite",
+                  "build": "vite build",
+                  "predeploy": "npm run build",
+                  "deploy": "gh-pages -d build"
+            }
 }

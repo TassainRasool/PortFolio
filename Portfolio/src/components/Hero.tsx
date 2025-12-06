@@ -9,7 +9,7 @@ import {
   Figma,
   Layers,
 } from "lucide-react";
-import profileImage from "figma:asset/247e1217007296feac411d6f53e52efb067d3de3.png";
+import profileImage from "../assets/Dp1.jpg";
 
 export function Hero() {
   const skills = [
@@ -206,7 +206,6 @@ export function Hero() {
                     src={profileImage}
                     alt="Profile"
                     className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-[#00ADB5] shadow-2xl"
-                    style={{ transform: "rotate(180deg)" }}
                   />
 
                   {/* Decorative circles */}

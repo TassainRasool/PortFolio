@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Button } from "./ui/button";
 import { Download, Dumbbell, Figma, Zap } from "lucide-react";
-import profileImage from "figma:asset/247e1217007296feac411d6f53e52efb067d3de3.png";
+import profileImage from "../assets/DP.jpg";
 
 export function About() {
   // Direct download link from Google Drive
@@ -47,7 +47,6 @@ export function About() {
                   src={profileImage}
                   alt="Developer Portrait"
                   className="relative z-10 rounded-2xl w-full h-auto shadow-xl"
-                  style={{ transform: 'rotate(180deg)' }}
                 />
               </div>
             </motion.div>

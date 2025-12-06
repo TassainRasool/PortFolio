@@ -4,6 +4,8 @@
   import path from 'path';
 
   export default defineConfig({
+    // Base must match your GitHub repo name for Pages (username.github.io/RepoName/)
+    base: '/PortFolio/',
     plugins: [react()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
