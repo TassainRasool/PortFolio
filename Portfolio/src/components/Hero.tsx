@@ -9,7 +9,7 @@ import {
   Figma,
   Layers,
 } from "lucide-react";
-import profileImage from "../assets/Dp1.jpg";
+import profileImage from "figma:asset/247e1217007296feac411d6f53e52efb067d3de3.png";
 
 export function Hero() {
   const skills = [

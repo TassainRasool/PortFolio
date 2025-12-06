@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Button } from "./ui/button";
 import { Download, Dumbbell, Figma, Zap } from "lucide-react";
-import profileImage from "../assets/DP.jpg";
+import profileImage from "figma:asset/247e1217007296feac411d6f53e52efb067d3de3.png";
 
 export function About() {
   // Direct download link from Google Drive
