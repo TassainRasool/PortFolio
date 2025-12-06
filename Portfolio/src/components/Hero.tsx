@@ -206,6 +206,7 @@ export function Hero() {
                     src={profileImage}
                     alt="Profile"
                     className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-[#00ADB5] shadow-2xl"
+                    style={{ transform: "rotate(180deg)" }}
                   />
 
                   {/* Decorative circles */}
