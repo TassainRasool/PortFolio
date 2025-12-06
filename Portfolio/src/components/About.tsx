@@ -47,6 +47,7 @@ export function About() {
                   src={profileImage}
                   alt="Developer Portrait"
                   className="relative z-10 rounded-2xl w-full h-auto shadow-xl"
+                  style={{ transform: 'rotate(180deg)' }}
                 />
               </div>
             </motion.div>
