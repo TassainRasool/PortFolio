@@ -1,11 +1,11 @@
 import { motion } from "motion/react";
 import { Button } from "./ui/button";
 import { Download, Dumbbell, Figma, Zap } from "lucide-react";
-import profileImage from "figma:asset/247e1217007296feac411d6f53e52efb067d3de3.png";
+import profileImage from "../assets/DP.jpg";
 
 export function About() {
   // Direct download link from Google Drive
-  const resumeDownloadUrl = "https://drive.google.com/uc?export=download&id=1GbaE8z_KjC79UF5Z8rPIc04zikPh33hk";
+  const resumeDownloadUrl = "https://drive.google.com/file/d/1CecgX4v8faqXD8qT_YYSWRw4OZ46R6uA/view?usp=drive_link";
 
   const handleDownload = () => {
     // Create a temporary anchor element to trigger download
@@ -47,7 +47,6 @@ export function About() {
                   src={profileImage}
                   alt="Developer Portrait"
                   className="relative z-10 rounded-2xl w-full h-auto shadow-xl"
-                  style={{ transform: 'rotate(180deg)' }}
                 />
               </div>
             </motion.div>
