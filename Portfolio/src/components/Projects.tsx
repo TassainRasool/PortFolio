@@ -14,10 +14,10 @@ import SplashScreenImage from "./images/SplashScreen.png";
 
 const projects = [
   {
-    title: "G20 India Official Website",
+    title: "G20 India Official App",
     client: "Government of India",
     description:
-      "Contributed as UI/UX designer for India's G20 Presidency website, collaborating on creating an intuitive and culturally rich digital experience for global audiences.",
+      "Contributed as UI/UX designer for India's G20 Presidency mobile application, collaborating on creating an intuitive and culturally rich digital experience for global audiences.",
     problem:
       "Needed a design system that could represent India's heritage while ensuring accessibility and usability for international visitors.",
     solution:
@@ -40,10 +40,10 @@ const projects = [
     githubLink: "#",
   },
   {
-    title: "SHV Energy Corporate Website",
+    title: "SHV Energy Corporate App",
     client: "SHV Energy",
     description:
-      "Worked as UI/UX designer on global energy leader's website, contributing to user-centric interface design balancing corporate professionalism with modern web design principles.",
+      "Worked as UI/UX designer on global energy leader's mobile application, contributing to user-centric interface design balancing corporate professionalism with modern web design principles.",
     problem:
       "Required a sophisticated design that communicates trust and sustainability while maintaining excellent user experience across all devices.",
     solution:
