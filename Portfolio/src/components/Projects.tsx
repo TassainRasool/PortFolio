@@ -43,7 +43,7 @@ const projects = [
     title: "SHV Energy Corporate App",
     client: "SHV Energy",
     description:
-      "Worked as UI/UX designer on global energy leader's mobile application, contributing to user-centric interface design balancing corporate professionalism with modern web design principles.",
+      "Worked as UI/UX designer on global energy leader's mobile application, contributing to user-centric interface design balancing corporate professionalism with modern app design principles.",
     problem:
       "Required a sophisticated design that communicates trust and sustainability while maintaining excellent user experience across all devices.",
     solution:
