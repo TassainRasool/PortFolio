@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import FloatingDots from "./FloatingDots";
 import {
   Card,
   CardContent,
@@ -129,7 +130,8 @@ const projects = [
 
 export function Projects() {
   return (
-    <section className="py-20 bg-white" id="projects">
+    <section className="py-20 bg-gradient-to-br from-[#1a1f26] via-[#222831] to-[#2d3541] relative overflow-hidden" id="projects">
+      <FloatingDots />
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -138,10 +140,10 @@ export function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl mb-4 text-[#222831]">
+          <h2 className="text-4xl md:text-5xl mb-4 text-white">
             Projects
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-300 max-w-2xl mx-auto">
             Real projects. Real results. See how I've helped
             clients bring their ideas to life.
           </p>

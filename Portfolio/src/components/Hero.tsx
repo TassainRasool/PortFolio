@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import {
   ArrowDown,
@@ -9,7 +10,38 @@ import {
   Figma,
   Layers,
 } from "lucide-react";
-import profileImage from "figma:asset/247e1217007296feac411d6f53e52efb067d3de3.png";
+import profileImage from "../assets/Dp1.jpg";
+
+function GreetingRotator() {
+  const greetings = [
+    "Hello",
+    "Hola",
+    "Bonjour",
+    "مرحبا",
+    "नमस्ते",
+    "你好",
+    "こんにちは",
+    "Hallo",
+  ];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % greetings.length), 2500);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <motion.span
+      key={index}
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="inline-block mr-2"
+    >
+      {greetings[index]}
+    </motion.span>
+  );
+}
 
 export function Hero() {
   const skills = [
@@ -18,10 +50,45 @@ export function Hero() {
     { icon: Layers, label: "Design Systems", color: "#00ADB5" },
   ];
 
+  const sectionContainer = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.18 } },
+  };
+
+  const [play, setPlay] = useState(false);
+  useEffect(() => {
+    const id = setTimeout(() => setPlay(true), 40);
+    return () => clearTimeout(id);
+  }, []);
+
+  // Appear-from-background variants: subtle scale + fade instead of sliding
+  const leftWrapper = {
+    hidden: { opacity: 0, scale: 0.96 },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: { type: "spring", stiffness: 90, damping: 16 },
+    },
+  };
+
+  const rightWrapper = {
+    hidden: { opacity: 0, scale: 0.96 },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: { type: "spring", stiffness: 90, damping: 16 },
+    },
+  };
+
+  const leftItem = {
+    hidden: { opacity: 0, scale: 0.98 },
+    show: { opacity: 1, scale: 1, transition: { duration: 0.42 } },
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#1a1f26] via-[#222831] to-[#2d3541] text-white relative overflow-hidden">
       {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
         <motion.div
           className="absolute top-20 left-20 w-96 h-96 bg-[#00ADB5] rounded-full blur-3xl"
           animate={{
@@ -47,9 +114,10 @@ export function Hero() {
           }}
         ></motion.div>
       </div>
+      
 
       {/* Floating dots */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
@@ -72,46 +140,40 @@ export function Hero() {
       </div>
 
       <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+        <motion.div
+          variants={sectionContainer}
+          initial="hidden"
+          animate={play ? "show" : "hidden"}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto"
+        >
           {/* Left side - Text content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-6"
-            >
+          <motion.div variants={leftWrapper}>
+            <motion.div variants={leftItem} className="mb-6">
               <span className="inline-block px-4 py-2 bg-[#00ADB5]/20 border border-[#00ADB5] rounded-full text-[#00ADB5] text-sm mb-4">
                 Available for Design Projects
               </span>
               <h1 className="text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight">
-                Hi, I'm{" "}
-                <span className="text-[#00ADB5]">
-                  Tassain Rasool Malik
+                <span className="block mb-2">
+                  <GreetingRotator />
                 </span>
+                <span className="block">
+                  <span className="inline-block mr-3">, I'm</span>
+                  <span className="inline-block text-[#00ADB5] font-extrabold"><strong>Tassain Rasool</strong></span>
+                </span>
+                
               </h1>
               <h2 className="text-2xl md:text-3xl text-gray-300 mb-6">
                 UI/UX Designer & Visual Storyteller
               </h2>
               <p className="text-lg text-gray-400 leading-relaxed mb-8">
-                I design intuitive, user-centered digital
-                experiences that blend aesthetics with
-                functionality. Transforming complex ideas into
-                beautiful, accessible interfaces that users
-                love.
+              Specialized in design systems, multilingual and RTL interfaces, and end-to-end UX from research to developer
+handoff. Proven experience working with cross-functional teams on high-impact national and enterprise platforms.
+Strong Figma expertise focused on scalable, accessible, and production-ready design.
+update this line in hero section intead of I design intuitive section
               </p>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap gap-4 mb-8"
-            >
+            <motion.div variants={leftItem} className="flex flex-wrap gap-4 mb-8">
               <Button
                 size="lg"
                 className="bg-[#00ADB5] hover:bg-[#00ADB5]/90 px-8"
@@ -137,12 +199,7 @@ export function Hero() {
               </Button>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex gap-4"
-            >
+            <motion.div variants={leftItem} className="flex gap-4">
               <a
                 href="https://github.com/TassainRasool"
                 target="_blank"
@@ -169,12 +226,7 @@ export function Hero() {
           </motion.div>
 
           {/* Right side - Profile image and skills */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col items-center lg:items-end"
-          >
+          <motion.div variants={rightWrapper} className="flex flex-col items-center lg:items-end">
             <div className="relative mb-8">
               {/* Glowing ring effect */}
               <motion.div
@@ -206,7 +258,6 @@ export function Hero() {
                     src={profileImage}
                     alt="Profile"
                     className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-[#00ADB5] shadow-2xl"
-                    style={{ transform: "rotate(180deg)" }}
                   />
 
                   {/* Decorative circles */}
@@ -269,7 +320,7 @@ export function Hero() {
               })}
             </motion.div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}

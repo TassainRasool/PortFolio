@@ -1,10 +1,12 @@
 import { Heart } from "lucide-react";
+import FloatingDots from "./FloatingDots";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#222831] text-white py-12">
+    <footer className="bg-gradient-to-br from-[#1a1f26] via-[#222831] to-[#2d3541] text-white py-12 relative overflow-hidden">
+      <FloatingDots />
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>

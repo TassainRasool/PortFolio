@@ -2,7 +2,7 @@
 
 :root {
   --font-size: 16px;
-  --background: #EEEEEE;
+  --background: linear-gradient(to bottom right, #1a1f26, #222831, #2d3541);
   --foreground: #222831;
   --card: #ffffff;
   --card-foreground: #222831;
@@ -42,7 +42,7 @@
 }
 
 .dark {
-  --background: #222831;
+  --background: linear-gradient(to bottom right, #1a1f26, #222831, #2d3541);
   --foreground: #EEEEEE;
   --card: #393E46;
   --card-foreground: #EEEEEE;

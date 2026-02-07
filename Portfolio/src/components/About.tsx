@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import FloatingDots from "./FloatingDots";
 import { Button } from "./ui/button";
 import { Download, Dumbbell, Figma, Zap } from "lucide-react";
 import profileImage from "../assets/DP.jpg";
@@ -18,7 +19,8 @@ export function About() {
   };
 
   return (
-    <section className="py-20 bg-[#EEEEEE]" id="about">
+    <section className="py-20 bg-gradient-to-br from-[#1a1f26] via-[#222831] to-[#2d3541] relative overflow-hidden" id="about">
+      <FloatingDots />
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -27,8 +29,8 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl mb-4 text-[#222831]">About Me</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl mb-4 text-white">About Me</h2>
+          <p className="text-gray-300 max-w-2xl mx-auto">
             More than just visuals ! designing connections that empower users.
           </p>
         </motion.div>
@@ -59,9 +61,9 @@ export function About() {
               className="space-y-6"
             >
               <div>
-                <h3 className="text-2xl text-[#222831] mb-4">
+                <h3 className="text-2xl text-white mb-4">
                   Hi, I am a Designer               </h3>
-                <p className="text-gray-600 leading-relaxed mb-4">
+                <p className="text-gray-300 leading-relaxed mb-4">
                   Over 3 years, I have architected user-centric designs across critical sectors, including Fintech, Healthtech,
                   and E-commerce. My expertise is in blending rigorous user research and design thinking with pixel-perfect execution,
                   ensuring products are not only beautiful but also deliver tangible increases in user engagement and conversion rates.
@@ -79,8 +81,8 @@ export function About() {
                       <Figma className="text-[#00ADB5]" size={24} />
                     </div>
                   </div>
-                  <p className="text-2xl text-[#222831]">3+</p>
-                  <p className="text-sm text-gray-600">Years</p>
+                  <p className="text-2xl text-white">3+</p>
+                  <p className="text-sm text-gray-300">Years</p>
                 </div>
                 <div className="text-center">
                   <div className="flex justify-center mb-2">
@@ -88,8 +90,8 @@ export function About() {
                       <Zap className="text-[#00ADB5]" size={24} />
                     </div>
                   </div>
-                  <p className="text-2xl text-[#222831]">3+</p>
-                  <p className="text-sm text-gray-600">Projects</p>
+                  <p className="text-2xl text-white">3+</p>
+                  <p className="text-sm text-gray-300">Projects</p>
                 </div>
                 <div className="text-center">
                   <div className="flex justify-center mb-2">
@@ -97,8 +99,8 @@ export function About() {
                       <Dumbbell className="text-[#00ADB5]" size={24} />
                     </div>
                   </div>
-                  <p className="text-2xl text-[#222831]">∞</p>
-                  <p className="text-sm text-gray-600">MMA</p>
+                  <p className="text-2xl text-white">∞</p>
+                  <p className="text-sm text-gray-300">MMA</p>
                 </div>
               </div>
 

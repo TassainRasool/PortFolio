@@ -393,6 +393,7 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
+    overflow-x: hidden;
   }
 
   :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) h1 {

@@ -4,6 +4,7 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
+import FloatingDots from "./FloatingDots";
 import {
   Palette,
   Figma,
@@ -92,6 +93,7 @@ function SkillCard({
   index: number;
 }) {
   const [isHovered, setIsHovered] = useState(false);
+  const startX = index % 2 === 0 ? -300 : 300;
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -137,10 +139,10 @@ function SkillCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      initial={{ opacity: 0, scale: 0.96 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, amount: 0.35 }}
+      transition={{ duration: 0.45, delay: index * 0.06 }}
       style={{
         transformStyle: "preserve-3d",
         rotateX: isHovered ? rotateX : "0deg",
@@ -153,28 +155,28 @@ function SkillCard({
       className="transition-all duration-300 ease-out"
     >
       <Card
-        className="h-full border-none shadow-lg"
+        className="h-full min-h-[160px] bg-[#393E46] border-[#00ADB5]/20 hover:border-[#00ADB5] transition-colors shadow-lg"
         style={{
-          boxShadow: "0 10px 30px rgba(0, 173, 181, 0.2)",
+          boxShadow: "0 10px 30px rgba(0, 173, 181, 0.3)",
           transform: "translateZ(20px)",
         }}
       >
         <CardContent className="p-6">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-3 bg-[#00ADB5]/10 rounded-lg">
+            <div className="p-3 bg-[#00ADB5]/20 rounded-lg flex-shrink-0">
               <skill.icon
                 className="text-[#00ADB5]"
                 size={24}
               />
             </div>
-            <h3 className="text-[#222831]">{skill.title}</h3>
+            <h3 className="text-white">{skill.title}</h3>
           </div>
           <div className="flex flex-wrap gap-2">
             {skill.skills.map((s) => (
               <Badge
                 key={s}
                 variant="secondary"
-                className="bg-[#393E46] text-white hover:bg-[#393E46]/90"
+                className="bg-[#2b2f33] text-white hover:bg-[#2b2f33]/90"
               >
                 {s}
               </Badge>
@@ -188,7 +190,8 @@ function SkillCard({
 
 export function Skills() {
   return (
-    <section className="py-20 bg-[#EEEEEE]" id="skills">
+    <section className="py-20 bg-gradient-to-br from-[#1a1f26] via-[#222831] to-[#2d3541] relative overflow-hidden" id="skills">
+      <FloatingDots />
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -197,16 +200,16 @@ export function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl mb-4 text-[#222831]">
+          <h2 className="text-4xl md:text-5xl mb-4 text-white">
             What I Bring to the Table
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-300 max-w-2xl mx-auto">
             A comprehensive design toolkit built on user-centered thinking and creative problem-solving
           </p>
         </motion.div>
 
         <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-start"
           style={{ perspective: "1000px" }}
         >
           {skills.map((skill, index) => (

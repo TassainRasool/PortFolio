@@ -1,4 +1,5 @@
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import FloatingDots from "./FloatingDots";
 import { Card, CardContent } from "./ui/card";
 import { 
   Palette, 
@@ -152,7 +153,8 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
 
 export function Services() {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#222831] to-[#393E46]" id="services">
+    <section className="py-20 bg-gradient-to-br from-[#1a1f26] via-[#222831] to-[#2d3541] relative overflow-hidden" id="services">
+      <FloatingDots />
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import FloatingDots from "./FloatingDots";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -66,9 +67,10 @@ export function Contact() {
 
   return (
     <section
-      className="py-20 bg-gradient-to-br from-[#222831] via-[#2a3240] to-[#1f2937] relative overflow-hidden"
+      className="py-20 bg-gradient-to-br from-[#1a1f26] via-[#222831] to-[#2d3541] relative overflow-hidden"
       id="contact"
     >
+      <FloatingDots />
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-2 h-2 bg-[#00ADB5] rounded-full opacity-60"></div>
       <div className="absolute top-40 right-20 w-2 h-2 bg-[#00ADB5] rounded-full opacity-40"></div>
